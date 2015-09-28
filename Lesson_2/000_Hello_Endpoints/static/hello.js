@@ -23,7 +23,7 @@ function init() {
 	
 	// Load the helloworldendpoints API
 	// If loading completes successfully, call loadCallback function
-	gapi.client.load('helloworldendpoints', 'v1', loadCallback, rootpath);
+	gapi.client.load('helloworldendpoints', 'v2', loadCallback, rootpath);
 }
 
 /*
@@ -73,11 +73,12 @@ function greetGenerically () {
 function greetByName () {
 	// Get the name from the name_field element
 	var name = document.getElementById("name_field").value;
-	
+	var period = document.getElementById("period_field").value;
+
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': name});
+	var request = gapi.client.helloworldendpoints.sayHelloByPeriod({'name': name, 'period': period});
 	request.execute(sayHelloCallback);
 }
 
