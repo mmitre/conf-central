@@ -23,7 +23,7 @@ function init() {
 	
 	// Load the helloworldendpoints API
 	// If loading completes successfully, call loadCallback function
-	gapi.client.load('helloworldendpoints', 'v2', loadCallback, rootpath);
+	gapi.client.load('helloworldendpoints', 'v1', loadCallback, rootpath);
 }
 
 /*
@@ -78,7 +78,7 @@ function greetByName () {
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByPeriod({'name': name, 'period': period});
+	var request = gapi.client.helloworldendpoints.greetByPeriod({'name': name, 'period': period});
 	request.execute(sayHelloCallback);
 }
 

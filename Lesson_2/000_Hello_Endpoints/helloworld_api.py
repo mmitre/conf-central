@@ -28,9 +28,9 @@ class Hello(messages.Message):
     greeting = messages.StringField(1)
 
 
-@endpoints.api(name='helloworldendpoints', version='v2')
+@endpoints.api(name='helloworldendpoints', version='v1')
 class HelloWorldApi(remote.Service):
-    """Helloworld API v2."""
+    """Helloworld API v1."""
 
     @endpoints.method(message_types.VoidMessage, Hello,
       path = "sayHello", http_method='GET', name = "sayHello")
@@ -44,9 +44,9 @@ class HelloWorldApi(remote.Service):
       return Hello(greeting=greet)
 
     @endpoints.method(REQUEST_CONTAINER, Hello,
-      path = "sayHelloByPeriod", http_method='GET', name = "sayHelloByPeriod")
-    def say_hello_by_period(self, request):
-      greet = "Good {}".format(request.period) + ", {}".format(request.name)
+      path = "greetByPeriod", http_method='GET', name = "greetByPeriod")
+    def greet_by_period(self, request):
+      greet = "Good {}".format(request.period) + " {}!".format(request.name)
       return Hello(greeting=greet)
 
 APPLICATION = endpoints.api_server([HelloWorldApi])
