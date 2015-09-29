@@ -31,6 +31,7 @@ from models import ProfileMiniForm
 from models import ProfileForm
 from models import TeeShirtSize
 
+
 from settings import WEB_CLIENT_ID
 from utils import getUserId
 
@@ -90,6 +91,7 @@ class ConferenceApi(remote.Service):
             )
 
         profile.put()
+
         return profile      # return Profile
 
 
