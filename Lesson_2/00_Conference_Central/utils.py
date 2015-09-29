@@ -2,6 +2,7 @@ import json
 import os
 import time
 import uuid
+from google.appengine.ext import ndb
 
 from google.appengine.api import urlfetch
 from models import Profile
