@@ -76,8 +76,8 @@ class ConferenceApi(remote.Service):
         user_id = getUserId(user, "email")
         p_key = ndb.Key(Profile, user_id)
 
-        ## profile = get(p_key)
-        profile = None
+        ## profile = None
+        profile = p_key.get()
 
         ## step 2: create a new Profile from logged in user data
         ## you can use user.nickname() to get displayName
