@@ -76,6 +76,7 @@ class ConferenceApi(remote.Service):
         user_id = getUserId(user, "email")
         p_key = ndb.Key(Profile, user_id)
 
+        ## profile = get(p_key)
         profile = None
 
         ## step 2: create a new Profile from logged in user data
@@ -90,8 +91,7 @@ class ConferenceApi(remote.Service):
                 teeShirtSize = str(TeeShirtSize.NOT_SPECIFIED),
             )
 
-        profile.put()
-
+        ## profile.put()
         return profile      # return Profile
 
 
@@ -107,6 +107,7 @@ class ConferenceApi(remote.Service):
                     val = getattr(save_request, field)
                     if val:
                         setattr(prof, field, str(val))
+            prof.put()
 
         # return ProfileForm
         return self._copyProfileToForm(prof)
